@@ -1,0 +1,26 @@
+
+entity User {
+	userid Long
+    name String
+    dob String
+}
+
+entity Employee {
+	empid Long
+    userid Long
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+    role String
+}
+
+// an ignored comment
+/** not an ignored comment */
+
+relationship OneToOne {
+	User{userid} to Employee{userid}
+}
+
+// Set pagination options
+paginate User, Employee with infinite-scroll
